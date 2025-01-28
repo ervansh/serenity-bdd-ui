@@ -9,7 +9,7 @@ pipeline {
 		stage('Checkout'){
 			steps{
 					echo 'Checkout git. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
-				    git branch: 'main', url: 'https://git.epam.com/vanshraj_singh/serenitybdd.git'
+				    git branch: 'main', url: 'https://github.com/ervansh/serenity-bdd-ui.git'
 				    echo 'Checkout stage completed. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 			}
 		}
