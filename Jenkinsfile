@@ -9,7 +9,7 @@ pipeline {
 		stage('Checkout'){
 			steps{
 					echo 'Checkout git. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
-				    git branch: 'main', url: 'https://github.com/ervansh/serenity-bdd-ui.git'
+				    git branch: 'main', url: 'https://git.epam.com/vanshraj_singh/serenitybdd.git'
 				    echo 'Checkout stage completed. >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 			}
 		}
@@ -30,7 +30,7 @@ pipeline {
         stage('Reporting'){
 			steps{
 				echo 'Publishing report....>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
-				echo 'Write your code to publish reports.'
+				publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, includes: '**/*.html, **/*.css', keepAll: false, reportDir: 'target/site/serenity/', reportFiles: 'index.html', reportName: 'Serenitybdd HTML Report', reportTitles: '', useWrapperFileDirectly: true])
 							}
 		}
     }
