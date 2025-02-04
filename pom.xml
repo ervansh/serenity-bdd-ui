@@ -16,22 +16,23 @@
 		<logback.version>1.2.10</logback.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<encoding>UTF-8</encoding>
+		<java.target.version>17</java.target.version>
 		<tags></tags>
 		<parallel.tests></parallel.tests>
 		<webdriver.base.url></webdriver.base.url>
 	</properties>
-	
+
 	<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.junit</groupId>
-            <artifactId>junit-bom</artifactId>
-            <version>5.11.4</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>5.11.4</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
@@ -93,7 +94,7 @@
 			<artifactId>junit-platform-suite</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
@@ -110,7 +111,7 @@
 			<version>7.20.1</version>
 			<scope>test</scope>
 		</dependency>
-<!-- junit deps end-->
+		<!-- junit deps end-->
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
@@ -129,42 +130,42 @@
 			<version>${serenity.version}</version>
 		</dependency>
 		<dependency>
-   <groupId>com.github.invictum</groupId>
-   <artifactId>serenity-reportportal-integration</artifactId>
-   <version>1.5.7</version>
-</dependency>
+			<groupId>com.github.invictum</groupId>
+			<artifactId>serenity-reportportal-integration</artifactId>
+			<version>1.5.7</version>
+		</dependency>
 
-<dependency>
-    <groupId>com.epam.reportportal</groupId>
-    <artifactId>client-java</artifactId>
-    <version>5.2.25</version>
-</dependency>
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>client-java</artifactId>
+			<version>5.2.25</version>
+		</dependency>
 
-    <dependency>
-        <groupId>com.epam.reportportal</groupId>
-        <artifactId>logger-java-logback</artifactId>
-        <version>5.0.3</version> <!-- Use the latest version -->
-        <scope>test</scope>
-    </dependency>
-    
-            <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-browserstack</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.epam.reportportal</groupId>
+			<artifactId>logger-java-logback</artifactId>
+			<version>5.0.3</version> <!-- Use the latest version -->
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.serenity-bdd</groupId>
+			<artifactId>serenity-browserstack</artifactId>
+			<version>${serenity.version}</version>
+		</dependency>
 	</dependencies>
-	
+
 	<repositories>
-	<repository>
-    <id>sonatype-snapshot</id>
-    <url>http://oss.sonatype.org/content/repositories/snapshots/</url>
-    <releases>
-        <enabled>false</enabled>
-    </releases>
-    <snapshots>
-        <enabled>true</enabled>
-    </snapshots>
-</repository>
+		<repository>
+			<id>sonatype-snapshot</id>
+			<url>http://oss.sonatype.org/content/repositories/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<build>
 		<plugins>
@@ -182,10 +183,10 @@
 						<junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
 					</systemPropertyVariables>
 					<properties>
-            <configurationParameters>
-                cucumber.junit-platform.naming-strategy=long
-            </configurationParameters>
-        </properties>
+						<configurationParameters>
+							cucumber.junit-platform.naming-strategy=long
+						</configurationParameters>
+					</properties>
 				</configuration>
 				<executions>
 					<execution>
@@ -201,8 +202,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>${maven.compiler.version}</version>
 				<configuration>
-					<source>21</source>
-					<target>21</target>
+					<source>${java.target.version}</source>
+					<target>${java.target.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
